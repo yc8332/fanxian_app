@@ -317,7 +317,7 @@ class ctlMobile{
         
         $arr['time_stamp'] = intval($_GET['time_stamp']);//时间戳
         $token = trim($_GET['token']);//token
-        $arr['device_id'] = strtoupper(trim($_GET['device_id']));//设备唯一id
+        $arr['device_id'] = trim($_GET['device_id']);//设备唯一id
         $arr['uid'] = intval($_GET['snuid']);//用户uid
         $arr['currency'] = intval($_GET['currency']);//积分
         $arr['app_ratio'] = floatval($_GET['app_ratio']);//兑换比例，一分钱等于多少积分
