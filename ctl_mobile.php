@@ -99,7 +99,8 @@ class ctlMobile{
                     $result = array_values($result);
                 }else{
                     if($this->_is_android()){
-                        echo json_encode($result);
+                        $result = null;
+                        echo $result;
                         exit;
                     }
                     $result1[] = array("error"=>$result);
@@ -113,7 +114,8 @@ class ctlMobile{
                 $result = M('Mobile')->account(2,$date);
                 if(!is_array($result)){
                      if($this->_is_android()){
-                        echo json_encode($result);
+                         $result = null;
+                        echo $result;
                         exit;
                     }
                     $result1[] = array("error"=>$result);
