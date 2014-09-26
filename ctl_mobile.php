@@ -178,20 +178,34 @@ class ctlMobile{
     
     public function new_ver(){
         if($_REQUEST['ver'] && $_REQUEST['plat']==1){//安卓
-            if($_REQUEST['ver']==1.0){
+            if($_REQUEST['ver'] ==2.0){
                 echo json_encode(array('data'=>""));
             }else{
-                echo json_encode(array('data'=>"http://fanxian.com"));
+               
+                echo json_encode(array('data'=>'http://'.$_SERVER['HTTP_HOST']."/app/XM_4399_CashBack_2.0.apk",'ver'=>"2.0"));
             }
         }else if($_REQUEST['ver'] && $_REQUEST['plat']==2){//IOS
             if($_REQUEST['ver']==1.0){
                 echo json_encode(array('data'=>""));
             }else{
-                echo json_encode(array('data'=>"http://fanxian.com"));
+                echo json_encode(array('data'=>"http://fanxian.com/app/XM_4399_CashBack_2.0.apk"));
             }
         }
     }
-
+    
+    private function _get_app_version(){
+       $path = PATH_ROOT.'wwwroot/app';
+       $dir = opendir($path);
+       //列出  目录中的文件
+        while (($file = readdir($dir)) !== false){
+            
+            if($file == '.' || $file == '..')continue;
+            echo $file;
+        }
+        closedir($dir);
+       return $path;
+    }
+    
     public function task(){
         if($_REQUEST['device_id'] && $_REQUEST['reason'] && $_REQUEST['jifenbao']){
             
